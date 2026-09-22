@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -18,6 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.modifierdemo.R
 import com.example.modifierdemo.ui.theme.ModifierDemoTheme
 
 class MainActivity : ComponentActivity() {
@@ -40,12 +42,18 @@ fun DemoScreen(modifier: Modifier = Modifier) {
         .padding(all = 10.dp)
         .border(width = 2.dp, color = Color.Black)
 
-    Text(
-        "Hello Compose",
-        myModifier,
-        fontSize = 40.sp,
-        fontWeight = FontWeight.Bold
-    )
+    Column(modifier = modifier) {
+        Text(
+            "Hello Compose",
+            myModifier,
+            fontSize = 40.sp,
+            fontWeight = FontWeight.Bold
+        )
+        CustomImage(
+            image = R.drawable.vacation,
+            modifier = Modifier.padding(top = 20.dp)
+        )
+    }
 }
 
 @Composable
